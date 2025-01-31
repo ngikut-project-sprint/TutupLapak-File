@@ -9,8 +9,8 @@ import (
 )
 
 type ProjectConfig struct {
-	Team string `env:"PROJECT_TEAM"`
-	Name string `env:"PROJECT_NAME"`
+	Team string `env:"PROJECT_TEAM" env-default:"ngikut"`
+	Name string `env:"PROJECT_NAME" env-default:"tutuplapak"`
 }
 
 type DataBaseConfig struct {
@@ -18,6 +18,7 @@ type DataBaseConfig struct {
 	Password string `env:"DB_PASS"`
 	Host     string `env:"DB_HOST"`
 	Port     uint16 `env:"DB_PORT"`
+	SSLMode  string `env:"DB_SSLMODE" env-default:"require"`
 }
 
 func (db *DataBaseConfig) GetDSN() string {
@@ -28,7 +29,7 @@ func (db *DataBaseConfig) GetDSN() string {
 		db.Host,
 		db.Port,
 		db.Username,
-		"require",
+		db.SSLMode,
 	)
 }
 
@@ -49,16 +50,17 @@ func (c *AWSConfig) GetCredential() credentials.StaticCredentialsProvider {
 }
 
 type FileConfig struct {
-	// In bytes
-	FileMaxSize      int64 `env:"FILE_MAX_SIZE"`
-	ThumbnailMaxSize int64 `env:"THUMBNAIL_MAX_SIZE"`
+	FileMaxSize      int64 `env:"FILE_MAX_SIZE" env-default:"102400"`     // In bytes
+	ThumbnailMaxSize int64 `env:"THUMBNAIL_MAX_SIZE" env-default:"10240"` // In bytes
 }
 
 type Config struct {
-	Project  ProjectConfig
-	Database DataBaseConfig
-	AWS      AWSConfig
-	File     FileConfig
+	ServerPort     string `env:"SERVER_PORT" env-default:"8080"`
+	RequestTimeout int    `env:"REQUEST_TIMEOUT" env-default:"2"` // In seconds
+	Project        ProjectConfig
+	Database       DataBaseConfig
+	AWS            AWSConfig
+	File           FileConfig
 }
 
 func Load() (*Config, error) {
