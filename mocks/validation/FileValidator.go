@@ -21,17 +21,17 @@ func (_m *FileValidator) EXPECT() *FileValidator_Expecter {
 	return &FileValidator_Expecter{mock: &_m.Mock}
 }
 
-// ValidateFile provides a mock function with given fields: fileHeader
-func (_m *FileValidator) ValidateFile(fileHeader *multipart.FileHeader) error {
-	ret := _m.Called(fileHeader)
+// ValidateFile provides a mock function with given fields: fileHeader, maxFileSize
+func (_m *FileValidator) ValidateFile(fileHeader *multipart.FileHeader, maxFileSize int64) error {
+	ret := _m.Called(fileHeader, maxFileSize)
 
 	if len(ret) == 0 {
 		panic("no return value specified for ValidateFile")
 	}
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(*multipart.FileHeader) error); ok {
-		r0 = rf(fileHeader)
+	if rf, ok := ret.Get(0).(func(*multipart.FileHeader, int64) error); ok {
+		r0 = rf(fileHeader, maxFileSize)
 	} else {
 		r0 = ret.Error(0)
 	}
@@ -46,13 +46,14 @@ type FileValidator_ValidateFile_Call struct {
 
 // ValidateFile is a helper method to define mock.On call
 //   - fileHeader *multipart.FileHeader
-func (_e *FileValidator_Expecter) ValidateFile(fileHeader interface{}) *FileValidator_ValidateFile_Call {
-	return &FileValidator_ValidateFile_Call{Call: _e.mock.On("ValidateFile", fileHeader)}
+//   - maxFileSize int64
+func (_e *FileValidator_Expecter) ValidateFile(fileHeader interface{}, maxFileSize interface{}) *FileValidator_ValidateFile_Call {
+	return &FileValidator_ValidateFile_Call{Call: _e.mock.On("ValidateFile", fileHeader, maxFileSize)}
 }
 
-func (_c *FileValidator_ValidateFile_Call) Run(run func(fileHeader *multipart.FileHeader)) *FileValidator_ValidateFile_Call {
+func (_c *FileValidator_ValidateFile_Call) Run(run func(fileHeader *multipart.FileHeader, maxFileSize int64)) *FileValidator_ValidateFile_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(*multipart.FileHeader))
+		run(args[0].(*multipart.FileHeader), args[1].(int64))
 	})
 	return _c
 }
@@ -62,7 +63,7 @@ func (_c *FileValidator_ValidateFile_Call) Return(_a0 error) *FileValidator_Vali
 	return _c
 }
 
-func (_c *FileValidator_ValidateFile_Call) RunAndReturn(run func(*multipart.FileHeader) error) *FileValidator_ValidateFile_Call {
+func (_c *FileValidator_ValidateFile_Call) RunAndReturn(run func(*multipart.FileHeader, int64) error) *FileValidator_ValidateFile_Call {
 	_c.Call.Return(run)
 	return _c
 }

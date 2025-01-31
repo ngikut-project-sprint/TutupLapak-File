@@ -24,7 +24,7 @@ func (_m *ImageDecoder) EXPECT() *ImageDecoder_Expecter {
 }
 
 // Decode provides a mock function with given fields: r
-func (_m *ImageDecoder) Decode(r io.Reader) (image.Image, string, error) {
+func (_m *ImageDecoder) Decode(r io.Reader) (image.Image, error) {
 	ret := _m.Called(r)
 
 	if len(ret) == 0 {
@@ -32,9 +32,8 @@ func (_m *ImageDecoder) Decode(r io.Reader) (image.Image, string, error) {
 	}
 
 	var r0 image.Image
-	var r1 string
-	var r2 error
-	if rf, ok := ret.Get(0).(func(io.Reader) (image.Image, string, error)); ok {
+	var r1 error
+	if rf, ok := ret.Get(0).(func(io.Reader) (image.Image, error)); ok {
 		return rf(r)
 	}
 	if rf, ok := ret.Get(0).(func(io.Reader) image.Image); ok {
@@ -45,19 +44,13 @@ func (_m *ImageDecoder) Decode(r io.Reader) (image.Image, string, error) {
 		}
 	}
 
-	if rf, ok := ret.Get(1).(func(io.Reader) string); ok {
+	if rf, ok := ret.Get(1).(func(io.Reader) error); ok {
 		r1 = rf(r)
 	} else {
-		r1 = ret.Get(1).(string)
+		r1 = ret.Error(1)
 	}
 
-	if rf, ok := ret.Get(2).(func(io.Reader) error); ok {
-		r2 = rf(r)
-	} else {
-		r2 = ret.Error(2)
-	}
-
-	return r0, r1, r2
+	return r0, r1
 }
 
 // ImageDecoder_Decode_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'Decode'
@@ -78,12 +71,12 @@ func (_c *ImageDecoder_Decode_Call) Run(run func(r io.Reader)) *ImageDecoder_Dec
 	return _c
 }
 
-func (_c *ImageDecoder_Decode_Call) Return(_a0 image.Image, _a1 string, _a2 error) *ImageDecoder_Decode_Call {
-	_c.Call.Return(_a0, _a1, _a2)
+func (_c *ImageDecoder_Decode_Call) Return(_a0 image.Image, _a1 error) *ImageDecoder_Decode_Call {
+	_c.Call.Return(_a0, _a1)
 	return _c
 }
 
-func (_c *ImageDecoder_Decode_Call) RunAndReturn(run func(io.Reader) (image.Image, string, error)) *ImageDecoder_Decode_Call {
+func (_c *ImageDecoder_Decode_Call) RunAndReturn(run func(io.Reader) (image.Image, error)) *ImageDecoder_Decode_Call {
 	_c.Call.Return(run)
 	return _c
 }
