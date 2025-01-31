@@ -1,5 +1,5 @@
 # Variables
-APP_NAME := tutuplapak-file
+APP_NAME := TutupLapak-File
 BUILD_DIR := bin
 MAIN_FILE := cmd/main.go
 
