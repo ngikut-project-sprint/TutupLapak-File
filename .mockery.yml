@@ -16,6 +16,7 @@ packages:
       dir: mocks/service
     interfaces:
       FileService:
+      FileUploader:
   github.com/ngikut-project-sprint/TutupLapak-File/internal/utils/imageutil:
     config:
       dir: mocks/imageutil
@@ -27,6 +28,8 @@ packages:
       dir: mocks/rwutil
     interfaces:
       Reader:
+      FileOpener:
+      FileData:
   github.com/ngikut-project-sprint/TutupLapak-File/internal/utils/validation:
     config:
       dir: mocks/validation
