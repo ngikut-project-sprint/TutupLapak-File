@@ -41,7 +41,7 @@ func CompressImage(buffer *bytes.Buffer, img image.Image, maxSize int64) error {
 			break
 		}
 
-		// Increate image size reducer if the image size is too large
+		// Increase image size reducer if the image size is too large
 		sizeReduce += 1
 	}
 
