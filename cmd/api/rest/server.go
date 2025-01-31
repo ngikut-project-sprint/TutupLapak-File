@@ -2,6 +2,7 @@ package rest
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 	"os"
 	"os/signal"
@@ -25,7 +26,7 @@ func StartRESTServer(db *gorm.DB, cfg *config.Config, awsCfg aws.Config) {
 	InitRouter(e, db, cfg, awsCfg)
 
 	go func() {
-		if err := e.Start(":8080"); err != nil && err != http.ErrServerClosed {
+		if err := e.Start(fmt.Sprintf(":%s", cfg.ServerPort)); err != nil && err != http.ErrServerClosed {
 			e.Logger.Fatal("Shutting down the server")
 		}
 	}()

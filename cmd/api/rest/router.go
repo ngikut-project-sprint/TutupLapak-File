@@ -37,6 +37,7 @@ func InitRouter(
 		fileService,
 		cfg.File.FileMaxSize,
 		validation.ValidateFile,
+		time.Duration(cfg.RequestTimeout)*time.Second,
 	)
 
 	versionGroup := e.Group("/v1")
