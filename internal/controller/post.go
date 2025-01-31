@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"strconv"
 	"sync"
-	"time"
 
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
@@ -25,7 +24,7 @@ func (fc *FileController) Post(c echo.Context) error {
 		return errorutil.SendErrorResponse(c, err.Error(), http.StatusBadRequest)
 	}
 
-	ctx, cancel := context.WithTimeout(c.Request().Context(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(c.Request().Context(), fc.timeout)
 	defer cancel()
 
 	id := uuid.New().String()
