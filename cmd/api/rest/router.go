@@ -10,12 +10,12 @@ import (
 	"github.com/labstack/echo/v4"
 	"gorm.io/gorm"
 
-	"github.com/98prabowo/tutuplapak-file/config"
-	"github.com/98prabowo/tutuplapak-file/internal/controller"
-	"github.com/98prabowo/tutuplapak-file/internal/repository"
-	"github.com/98prabowo/tutuplapak-file/internal/service"
-	"github.com/98prabowo/tutuplapak-file/internal/utils/imageutil"
-	"github.com/98prabowo/tutuplapak-file/internal/utils/validation"
+	"github.com/ngikut-project-sprint/TutupLapak-File/config"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/controller"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/repository"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/service"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/utils/imageutil"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/utils/validation"
 )
 
 func InitRouter(

@@ -8,9 +8,9 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
-	"github.com/98prabowo/tutuplapak-file/cmd/api/rest"
-	"github.com/98prabowo/tutuplapak-file/config"
-	"github.com/98prabowo/tutuplapak-file/internal/model"
+	"github.com/ngikut-project-sprint/TutupLapak-File/cmd/api/rest"
+	"github.com/ngikut-project-sprint/TutupLapak-File/config"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/model"
 )
 
 func main() {

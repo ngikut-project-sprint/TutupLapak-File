@@ -12,7 +12,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"gorm.io/gorm"
 
-	"github.com/98prabowo/tutuplapak-file/config"
+	"github.com/ngikut-project-sprint/TutupLapak-File/config"
 )
 
 func StartRESTServer(db *gorm.DB, cfg *config.Config, awsCfg aws.Config) {

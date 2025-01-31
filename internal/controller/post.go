@@ -11,8 +11,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
 
-	"github.com/98prabowo/tutuplapak-file/internal/model"
-	"github.com/98prabowo/tutuplapak-file/internal/utils/errorutil"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/model"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/utils/errorutil"
 )
 
 func (fc *FileController) Post(c echo.Context) error {

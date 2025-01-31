@@ -5,10 +5,10 @@ import (
 	"github.com/aws/aws-sdk-go-v2/feature/s3/manager"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 
-	"github.com/98prabowo/tutuplapak-file/config"
-	"github.com/98prabowo/tutuplapak-file/internal/repository"
-	"github.com/98prabowo/tutuplapak-file/internal/utils/imageutil"
-	"github.com/98prabowo/tutuplapak-file/internal/utils/rwutil"
+	"github.com/ngikut-project-sprint/TutupLapak-File/config"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/repository"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/utils/imageutil"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/utils/rwutil"
 )
 
 type s3FileService struct {

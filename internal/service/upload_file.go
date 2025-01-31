@@ -11,8 +11,8 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/aws/aws-sdk-go-v2/service/s3/types"
 
-	"github.com/98prabowo/tutuplapak-file/internal/model"
-	"github.com/98prabowo/tutuplapak-file/internal/utils/rwutil"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/model"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/utils/rwutil"
 )
 
 func (s *s3FileService) UploadFile(ctx context.Context, file *multipart.FileHeader, fileName string, completion chan model.Completion) {

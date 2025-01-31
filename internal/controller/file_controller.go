@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"github.com/98prabowo/tutuplapak-file/internal/service"
-	"github.com/98prabowo/tutuplapak-file/internal/utils/validation"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/service"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/utils/validation"
 )
 
 type FileController struct {

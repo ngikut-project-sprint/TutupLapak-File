@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	"github.com/98prabowo/tutuplapak-file/internal/model"
+	"github.com/ngikut-project-sprint/TutupLapak-File/internal/model"
 )
 
 type FileRepository interface {
